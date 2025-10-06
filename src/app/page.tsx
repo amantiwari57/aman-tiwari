@@ -1,4 +1,3 @@
-import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -8,8 +7,27 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { PenTool, FileText, BookOpen, Globe2, Bot } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
+
+function getActivityIcon(title: string) {
+  const className = "h-8 w-8 mb-2";
+  switch (title) {
+    case "Content Creation":
+      return <PenTool className={className} />;
+    case "Technical Blogging":
+      return <FileText className={className} />;
+    case "Reading Fiction":
+      return <BookOpen className={className} />;
+    case "Learning Languages":
+      return <Globe2 className={className} />;
+    case "Building AGI":
+      return <Bot className={className} />;
+    default:
+      return <PenTool className={className} />;
+  }
+}
 
 export default function Page() {
   return (
@@ -152,46 +170,40 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id="hackathons">
+      <section id="activities">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                  Hackathons
+                  Activity Areas
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                  I like building things
+                  What I&apos;m Up To
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  During my time in university, I attended{" "}
-                  {DATA.hackathons.length}+ hackathons. People from around the
-                  country would come together and build incredible things in 2-3
-                  days. It was eye-opening to see the endless possibilities
-                  brought to life by a group of motivated and passionate
-                  individuals.
+                  Beyond coding, I&apos;m passionate about learning, creating, and contributing to the future of AI.
                 </p>
               </div>
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-              {DATA.hackathons.map((project, id) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-[800px] mx-auto">
+              {DATA.activities.map((activity, id) => (
                 <BlurFade
-                  key={project.title + project.dates}
+                  key={activity.title}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
                 >
-                  <HackathonCard
-                    title={project.title}
-                    description={project.description}
-                    location={project.location}
-                    dates={project.dates}
-                    image={project.image}
-                    links={project.links}
-                  />
+                  <div className="flex flex-col items-center space-y-2 border border-muted p-6 rounded-lg hover:shadow-md transition-shadow">
+                    <div>{getActivityIcon(activity.title)}</div>
+                    <h3 className="font-bold text-lg">{activity.title}</h3>
+                    <p className="text-sm text-muted-foreground text-center">
+                      {activity.description}
+                    </p>
+                  </div>
                 </BlurFade>
               ))}
-            </ul>
+            </div>
           </BlurFade>
         </div>
       </section>
