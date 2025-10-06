@@ -231,26 +231,71 @@ export const DATA = {
     },
   ],
   hackathons: [],
+  n8n: [
+    {
+      title: "AI Receptionist Workflow",
+      href: "#",
+      description:
+        "Chat and voice receptionist that checks calendars, collects details via email, and books & confirms appointments automatically.",
+      technologies: ["n8n", "Calendars", "Email", "LLM"],
+      image: "/n8n/airceptionist.png",
+      video: "",
+      dates: "",
+      links: [],
+    },
+    {
+      title: "Google Maps to Leads & Emails",
+      href: "#",
+      description:
+        "Scrape businesses from Google Maps, enrich and extract contacts, and compile outreach-ready email lists end-to-end.",
+      technologies: ["n8n", "Google Maps", "Leads", "Email"],
+      image: "/n8n/google-map.png",
+      video: "",
+      dates: "",
+      links: [],
+    },
+    {
+      title: "Website to Personalized Icebreaker",
+      href: "#",
+      description:
+        "Analyze a prospect's website content and auto-generate a tailored icebreaker line for high-converting outreach.",
+      technologies: ["n8n", "Web Scraping", "LLM", "Outreach"],
+      image: "/n8n/icebreaker.png",
+      video: "",
+      dates: "",
+      links: [],
+    },
+  ],
   activities: [
     {
       title: "Content Creation",
       description: "Creating technical content, tutorials, and educational material about AI, agentic systems, and modern web development.",
+      image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?q=80&w=1200&auto=format&fit=crop",
+      technologies: ["Writing", "Education", "AI"],
     },
     {
       title: "Technical Blogging",
       description: "Writing in-depth articles about AI development, multi-agent systems, and software engineering best practices.",
+      image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop",
+      technologies: ["Blog", "Engineering", "LLM"],
     },
     {
       title: "Reading Fiction",
       description: "Exploring science fiction and fantasy novels to fuel creativity and gain new perspectives on technology and humanity.",
+      image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop",
+      technologies: ["Books", "Sci‑Fi", "Creativity"],
     },
     {
       title: "Learning Languages",
       description: "Continuously expanding linguistic knowledge to enhance communication and understand diverse perspectives.",
+      image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=1200&auto=format&fit=crop",
+      technologies: ["Language", "Culture", "Growth"],
     },
     {
       title: "Building AGI",
       description: "Working towards the goal of contributing to Artificial General Intelligence development through research, experimentation, and building autonomous AI systems.",
+      image: "https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?q=80&w=1200&auto=format&fit=crop",
+      technologies: ["AGI", "Autonomy", "Research"],
     },
   ],
 } as const;

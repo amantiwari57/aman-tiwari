@@ -170,6 +170,42 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="n8n">
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  n8n Templates
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Automations I build with n8n
+                </h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Production-ready workflow templates for lead-gen, scheduling, and personalized outreach.
+                </p>
+              </div>
+            </div>
+          </BlurFade>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+            {DATA.n8n.map((item, id) => (
+              <BlurFade key={item.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+                <ProjectCard
+                  href={item.href}
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                  dates={item.dates}
+                  tags={item.technologies}
+                  image={item.image}
+                  video={item.video}
+                  links={item.links}
+                />
+              </BlurFade>
+            ))}
+          </div>
+        </div>
+      </section>
       <section id="activities">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -187,24 +223,23 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-[800px] mx-auto">
-              {DATA.activities.map((activity, id) => (
-                <BlurFade
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+            {DATA.activities.map((activity, id) => (
+              <BlurFade key={activity.title} delay={BLUR_FADE_DELAY * 14 + id * 0.05}>
+                <ProjectCard
+                  href={"#"}
                   key={activity.title}
-                  delay={BLUR_FADE_DELAY * 15 + id * 0.05}
-                >
-                  <div className="flex flex-col items-center space-y-2 border border-muted p-6 rounded-lg hover:shadow-md transition-shadow">
-                    <div>{getActivityIcon(activity.title)}</div>
-                    <h3 className="font-bold text-lg">{activity.title}</h3>
-                    <p className="text-sm text-muted-foreground text-center">
-                      {activity.description}
-                    </p>
-                  </div>
-                </BlurFade>
-              ))}
-            </div>
-          </BlurFade>
+                  title={activity.title}
+                  description={activity.description}
+                  dates={""}
+                  tags={activity.technologies || []}
+                  image={activity.image}
+                  video={""}
+                  links={[]}
+                />
+              </BlurFade>
+            ))}
+          </div>
         </div>
       </section>
       <section id="contact">
